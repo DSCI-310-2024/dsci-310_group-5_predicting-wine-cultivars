@@ -1,8 +1,14 @@
-It is a good practice to include information about how others, outside the core team, can contribute to your project somewhere in your repository. This is typically done as a separate file in the repository called CONTRIBUTING.md. Here are some examples of this file:
+Thank you for your interest in contributing!
 
-Examples:
-https://github.com/altair-viz/altair/blob/main/CONTRIBUTING.md
+### About contributing
+Feel free to suggest changes, improvements, and bug fixes. But please be respectful and follow the code of conduct.
 
-https://github.com/tidyverse/dplyr/blob/main/.github/CONTRIBUTING.md
+### Before contributing
+Before suggesting a change and making a pull request file an issue to confirm this is something the core team is interested in changing
 
-https://github.com/atom/atom/blob/master/CONTRIBUTING.md
+### How to contribute
+1. Fork the repository to your local machine
+2. Create a new branch and make your changes there
+3. Make sure your code runs correctly and fixes the issue
+4. Create a pull request and someone from our team will review your changes
+
