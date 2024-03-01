@@ -1,7 +1,7 @@
 Thank you for your interest in contributing!
 
 ### About contributing
-Feel free to suggest changes, improvements, and bug fixes. But please be respectful and follow the code of conduct.
+Feel free to suggest changes, improvements, and bug fixes. But please be respectful and follow the [code of conduct](CODE_OF_CONDUCT.md).
 
 ### Before contributing
 Before suggesting a change and making a pull request file an issue to confirm this is something the core team is interested in changing
