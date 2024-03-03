@@ -1,0 +1,176 @@
+[33mcommit 58210ac87bb89f8277fdf88de823d66575bef4dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: brucezcx <97466193+brucezcx@users.noreply.github.com>
+Date:   Sat Mar 2 20:59:19 2024 -0800
+
+    Update LICENSE.MD
+
+[33mcommit 2b3693ab48c6b9effd8f60c62159aaa420d334ff[m
+Merge: 3aa3b5b f957407
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Sat Mar 2 20:05:12 2024 -0800
+
+    Merge pull request #4 from DSCI-310-2024/methods-writeup
+    
+    Added in part of the methods, needs to update model type
+
+[33mcommit 3aa3b5b51d16c725776be6a3b1d11c18e652c39d[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Sat Mar 2 14:39:25 2024 -0800
+
+    updates to the virtual environment
+
+[33mcommit fbb936f55cd73b70a8f44e2731990d944731074f[m
+Merge: eb5d04f 58e3be6
+Author: Andrea Jackman <115048818+ajackman2@users.noreply.github.com>
+Date:   Sat Mar 2 03:49:16 2024 -0500
+
+    Merge pull request #3 from DSCI-310-2024/introduction-writeup
+    
+    Introduction writeup
+
+[33mcommit 58e3be66be1ddbe33df34801d4ec1403974a21d9[m[33m ([m[1;31morigin/introduction-writeup[m[33m)[m
+Merge: 34da9e7 2ef03f7
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Sat Mar 2 00:47:58 2024 -0800
+
+    added the suggestions for the introduction
+
+[33mcommit 34da9e715e8c0dadec814f7b9d5a4036afcd1bcf[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Sat Mar 2 00:43:52 2024 -0800
+
+    suggested edits to the introduction
+
+[33mcommit 2ef03f76e29a9046ef549df7a44c5723d7a889b6[m
+Author: Andrea Jackman <115048818+ajackman2@users.noreply.github.com>
+Date:   Fri Mar 1 12:47:29 2024 -0800
+
+    Fixing some weird formatting from jupyter notebooks
+
+[33mcommit 5c7016461127794f8b82b642b70f1794f803345f[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Fri Mar 1 12:45:52 2024 -0800
+
+    first draft of the introduction
+
+[33mcommit 3f5fb9c8dfb623349c01560b8c20466f1d8f0790[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Fri Mar 1 09:58:12 2024 -0800
+
+    wrote more of the introduction
+
+[33mcommit f957407550eebe1609add0cf1ce3ec3c10763124[m[33m ([m[1;31morigin/methods-writeup[m[33m)[m
+Author: Kaylan-W <kaylanwallace6@gmail.com>
+Date:   Fri Mar 1 09:48:07 2024 -0800
+
+    Added in part of the methods
+    
+    changed the link for the dataset, formatted some documentation, formatted the README
+
+[33mcommit 7fc685eca1bde4acce7bf5a387d071f17882c4d8[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Fri Mar 1 09:43:48 2024 -0800
+
+    first few sentences of the introduction
+
+[33mcommit eb5d04f1ed79bd4cc4e8c7b37cff39eb1ffbe2bc[m
+Merge: 1c17b74 1f01fba
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Fri Mar 1 09:28:48 2024 -0800
+
+    Merge pull request #2 from DSCI-310-2024/contributing-doc
+    
+    Contributing document updated
+
+[33mcommit 1f01fbaf0f7c38b5f49b690da5384036d04e3aee[m[33m ([m[1;31morigin/contributing-doc[m[33m)[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Fri Mar 1 09:22:51 2024 -0800
+
+    draft of the contributing statement
+
+[33mcommit e88f12b822b689ef52d3b1f2db9f2aac57a0abaf[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Fri Mar 1 09:14:04 2024 -0800
+
+    adding a link to the code of conduct in the document
+
+[33mcommit 1c17b747c70759bc0248247dc76b5a6568c8b65b[m
+Merge: a34b630 a386bcc
+Author: brucezcx <97466193+brucezcx@users.noreply.github.com>
+Date:   Fri Mar 1 05:32:29 2024 -0800
+
+    Merge pull request #1 from DSCI-310-2024/preliminary-EDA
+    
+    Preliminary exploratory data analysis: created summary tables of each…
+
+[33mcommit a34b630fa6aac5e9840d26b73d678e02946e5a5d[m
+Author: Zhibek (Jibek) <79948839+zhibekD@users.noreply.github.com>
+Date:   Wed Feb 28 23:00:25 2024 -0800
+
+    Update CODE_OF_CONDUCT.md
+
+[33mcommit a386bccbe140545a5ff4b6c28571120815b4a6c8[m[33m ([m[1;31morigin/preliminary-EDA[m[33m)[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Wed Feb 28 22:48:54 2024 -0800
+
+    Preliminary exploratory data analysis: created summary tables of each variable for the cultivar groups, upsampled to balance the groups, and created a preliminary plot
+
+[33mcommit 881710b580d7003fa2ac59be76bd8f765f24de4c[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Wed Feb 28 21:56:23 2024 -0800
+
+    draft of the contribution statement
+
+[33mcommit 9df5af1c5b4626e9dc447c2844b9457ca9992c73[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Wed Feb 28 21:32:16 2024 -0800
+
+    making sure the renv virtual environment is set up correctly
+
+[33mcommit 6af956a8549f8fbf71b8b7161eb5a805f034f886[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Wed Feb 28 21:31:39 2024 -0800
+
+    making sure the renv virtual environment is set up correctly
+
+[33mcommit e0b2adbb4d4b1a07eac8bcee9898de6bfc34f927[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 19:18:49 2024 -0800
+
+    Moved files to the renv folder
+
+[33mcommit af33f31b129f99afec5d25d6c3652caba9d2df60[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 19:18:24 2024 -0800
+
+    Moved files to the renv folder
+
+[33mcommit 2258bbb03e7c4d66a62cb54a2e0afb9a72486566[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 19:17:44 2024 -0800
+
+    Added an renv folder
+
+[33mcommit efe7c7a3ccd2420c8dbb385c26b35d139f95190c[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 19:16:46 2024 -0800
+
+    Added a data folder
+
+[33mcommit 072ba89f73c7c9c29c9779c895bc85fecd0e2ecd[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 19:16:19 2024 -0800
+
+    Created the repo and added initial files
+
+[33mcommit 5920a48d9da204ee7a2a74c3a8d3c48d240d7db6[m
+Author: ajackman2 <andrea59@student.ubc.ca>
+Date:   Wed Feb 28 19:00:00 2024 -0800
+
+    making the base contributing markdown document
+
+[33mcommit 3ec9ac874be70bd42e671ed79651e1c6a13b6e50[m
+Author: Kaylan Wallace <106447137+Kaylan-W@users.noreply.github.com>
+Date:   Wed Feb 28 18:37:46 2024 -0800
+
+    Initial commit
