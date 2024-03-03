@@ -5,3 +5,4 @@ lock/
 python/
 sandbox/
 staging/
+analysis/.ipynb_checkpoints/predicting_wine_cultivars-checkpoint.ipynb
