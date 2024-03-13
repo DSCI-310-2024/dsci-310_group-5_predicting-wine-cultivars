@@ -14,10 +14,10 @@ The data was sourced from the [UCI Machine Learning Repository](https://doi.org/
 To run the analysis:
 
 First run and replace <image_name> with an appropriate name
-'''docker build -t <image_name> .'''
+```docker build -t <image_name> .```
 
 The run 
-'''docker run --rm -it <image_name>'''
+```docker run --rm -it <image_name>```
 
 ## Dependencies 
 
