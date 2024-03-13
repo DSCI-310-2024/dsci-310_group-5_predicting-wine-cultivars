@@ -11,7 +11,13 @@ The data was sourced from the [UCI Machine Learning Repository](https://doi.org/
 
 ## Usage
 
-To run the analysis, use the [activate.R file](https://github.com/DSCI-310-2024/DSCI-310-Group-5/blob/35aa0ab4f227314f6bb648b567fd4b65a6f73c3a/renv/activate.R) environment file to install the packages required. 
+To run the analysis:
+
+First run and replace <image_name> with an appropriate name
+'''docker build -t <image_name> .'''
+
+The run 
+'''docker run --rm -it <image_name>'''
 
 ## Dependencies 
 
