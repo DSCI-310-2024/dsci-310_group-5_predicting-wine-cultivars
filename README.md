@@ -21,7 +21,7 @@ The run
 
 ## Dependencies 
 
-R is the main language used for analysis. Package versions are specified in the [activate.R file](https://github.com/DSCI-310-2024/DSCI-310-Group-5/blob/35aa0ab4f227314f6bb648b567fd4b65a6f73c3a/renv/activate.R).
+R is the main language used for analysis. Package versions are specified in the [Dockerfile]()
 
 ## License
 
