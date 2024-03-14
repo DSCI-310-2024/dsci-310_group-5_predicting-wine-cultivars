@@ -6,10 +6,13 @@
 Usage:
 03_exploratory_data_visualization.R scatter <variable1> <variable2>
 03_exploratory_data_visualization.R boxplot <variable>
+
 Options:
 <variable>  Name of the single variable for the histogram or boxplot.
 <variable1>  Name of the first variable for the scatter plot.
 <variable2>  Name of the second variable for the scatter plot.
+--input_dir=<input_dir>		Path (including filename) to raw data
+--output_dir=<output_dir>		Path to directory where the results should be saved
 
 " -> doc
 
@@ -19,13 +22,12 @@ library(ggplot2)
 
 opt <- docopt(doc)
 
-main <- function() {
-  data_path <- 'data/wine.data'
+main <- function(input_dir, out_dir) {
   
   col_names <- c("cultivar", "alcohol", "malic_acid", "ash", "alcalinity_of_ash", "magnesium", 
                  "total_phenols", "flavanoids", "nonflavanoid_phenols", "proanthocyanins", 
                  "color_intensity", "hue", "OD280_OD315_of_diluted_wines", "proline")
-  data <- read_csv(data_path, col_names = col_names, col_types = cols(.default = col_double(), cultivar = col_factor()))
+  data <- read_csv(input_dir, col_names = col_names, col_types = cols(.default = col_double(), cultivar = col_factor()))
   
   if (opt$scatter) {
     variable1 <- opt$variable1
@@ -39,21 +41,22 @@ main <- function() {
 }
 
 plot_scatter <- function(data, variable1, variable2) {
-  p <- ggplot(data, aes_string(x = variable1, y = variable2, color = "cultivar")) +
+  scatter <- ggplot(data, aes_string(x = variable1, y = variable2, color = "cultivar")) +
     geom_point() +
     labs(title = paste("Scatter Plot of", variable1, "vs", variable2), x = variable1, y = variable2) +
     theme_minimal()
   
-  print(p)
+  ggsave("scatterplot.png", device = "png", path = out_dir, width = 10, height = 3)
+
 }
 
 plot_boxplot <- function(data, variable) {
-  p <- ggplot(data, aes_string(x = "cultivar", y = variable, fill = "cultivar")) +
+  box <- ggplot(data, aes_string(x = "cultivar", y = variable, fill = "cultivar")) +
     geom_boxplot() +
     labs(title = paste("Boxplot of", variable, "by Cultivar"), x = "Cultivar", y = variable) +
     theme_minimal()
   
-  print(p)
+  ggsave("boxplot.png", device = "png", path = out_dir, width = 10, height = 3)
 }
 
-main()
+main(opt[["--input_dir"]], opt[["--out_dir"]])

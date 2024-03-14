@@ -5,8 +5,8 @@ Usage:
   04_model_and_summarize_results.R --data=<data> --output=<output>
 
 Options:
-  --data=<data>    Path to the preprocessed dataset.
-  --output=<output> Prefix for saving figures and tables (e.g., 'results/analysis_').
+  --input_dir=<input_dir>		Path (including filename) to raw data
+  --output_dir=<output_dir>		Path to directory where the results should be saved
 "
 
 library(tidyverse)
@@ -16,9 +16,9 @@ library(kknn)
 
 opts <- docopt(doc)
 
-main <- function(data_path, output_prefix) {
+main <- function(input_dir, output_dir) {
   # Load the dataset
-  data <- read_csv(data_path)
+  data <- read_csv(input_dir)
   
   # Splitting the data into training and test sets
   set.seed(123)
@@ -70,8 +70,9 @@ main <- function(data_path, output_prefix) {
     conf_mat(truth = cultivar, estimate = .pred_class)
   
   # Save the confusion matrix and accuracy as a table
-  write_csv(bind_rows(accuracy = tibble(accuracy), confusion = as_tibble(confusion$table)), paste0(output_prefix, "metrics.csv"))
-  
+  write_csv(bind_rows(accuracy = tibble(accuracy), confusion = as_tibble(confusion$table)), file.path(output_dir, "metrics.csv"))
+ 
+
   # Generate and save a summary figure of accuracy over k
   accuracy_plot <- results %>%
     collect_metrics() %>%
@@ -80,11 +81,11 @@ main <- function(data_path, output_prefix) {
     geom_line() + 
     geom_point() +
     labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
-  
-  ggsave(paste0(output_prefix, "accuracy_plot.png"), accuracy_plot)
-  
-  cat("Model evaluation completed. Results saved to:", output_prefix, "\n")
+    ggsave("accuracy_plot.png", device = "png", path = out_dir, width = 10, height = 3)
+
+
+  cat("Model evaluation completed. Results saved to:", output_dir, "\n")
 }
 
 # Run the main function with arguments provided via command-line
-main(opts$--data, opts$--output)
+main(opt[["--input_dir"]], opt[["--out_dir"]])
