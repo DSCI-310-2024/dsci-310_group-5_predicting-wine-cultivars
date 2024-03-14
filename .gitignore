@@ -1,3 +1,4 @@
 .ipynb_checkpoints/CODE_OF_CONDUCT-checkpoint.md
 **/*.md
 .ipynb_checkpoints/predicting_wine_cultivars-checkpoint.ipynb
+.Rproj.user

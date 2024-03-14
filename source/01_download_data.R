@@ -30,7 +30,8 @@ main <- function(input_dir, output_dir) {
   data <- read_csv(output_dir, col_names = col_names)
 
   # Get the variable of interest from the user
-  var <- readline("Enter the variable to calculate statistics for: ")
+  var <- "alcohol"
+  # <- readline("Enter the variable to calculate statistics for: ")
 
   # Ensure the column exists in the dataset
   if (!var %in% names(data)) {
