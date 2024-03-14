@@ -4,8 +4,8 @@
 "This script generates specified visualizations for the wine dataset.
 
 Usage:
-03_exploratory_data_visualization.R scatter <variable1> <variable2>
-03_exploratory_data_visualization.R boxplot <variable>
+03_eda.R scatter <variable1> <variable2>
+03_eda.R boxplot <variable>
 
 Options:
 <variable>  Name of the single variable for the histogram or boxplot.
@@ -22,8 +22,12 @@ library(ggplot2)
 
 opt <- docopt(doc)
 
-main <- function(input_dir, out_dir) {
-  
+main <- function(input_dir, output_dir) {
+  # Create output_dir if it does not exist
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir)
+  }
+
   col_names <- c("cultivar", "alcohol", "malic_acid", "ash", "alcalinity_of_ash", "magnesium", 
                  "total_phenols", "flavanoids", "nonflavanoid_phenols", "proanthocyanins", 
                  "color_intensity", "hue", "OD280_OD315_of_diluted_wines", "proline")
@@ -46,7 +50,7 @@ plot_scatter <- function(data, variable1, variable2) {
     labs(title = paste("Scatter Plot of", variable1, "vs", variable2), x = variable1, y = variable2) +
     theme_minimal()
   
-  ggsave("scatterplot.png", device = "png", path = out_dir, width = 10, height = 3)
+  ggsave("scatterplot.png", device = "png", path = output_dir, width = 10, height = 3)
 
 }
 
@@ -56,7 +60,7 @@ plot_boxplot <- function(data, variable) {
     labs(title = paste("Boxplot of", variable, "by Cultivar"), x = "Cultivar", y = variable) +
     theme_minimal()
   
-  ggsave("boxplot.png", device = "png", path = out_dir, width = 10, height = 3)
+  ggsave("boxplot.png", device = "png", path = output_dir, width = 10, height = 3)
 }
 
-main(opt[["--input_dir"]], opt[["--out_dir"]])
+main(opt[["--input_dir"]], opt[["--output_dir"]])

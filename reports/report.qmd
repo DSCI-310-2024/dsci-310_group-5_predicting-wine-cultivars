@@ -49,6 +49,23 @@ Using this dataset, our predictive question is: "What is the cultivar of an unkn
 Identifying the chemical properties that distinguish cultivars enables farmers to make informed decisions about grape cultivation, aligning grape varieties with desired wine characteristics. By selecting cultivars known for specific flavor profiles or chemical compositions, farmers can tailor vineyard practices to meet market demands effectively. Moreover, this knowledge empowers brewers to experiment with wine compositions, fostering innovation and the creation of novel flavors. Armed with a deep understanding of wine chemistry, brewers can also strategically market their products, ensuring effective communication of the unique qualities and appeal of each wine to consumers.
 
 ## Exploratory Data Analysis
+```{r}
+#| label: tbl-summary-stats
+#| tbl-cap: Summary statistics for the raw data.
+
+summary-stats-tables <- read_csv("../results/summary_stats.csv")
+knitr::kable(summary-stats-tables)
+```
+
+In @tbl-summary-stats, we see that... !!!
+
+![Scatterplot for !!!](../results/scatterplot.png){#fig-scatterplot width=90%}
+
+We can see from @fig-scatterplot ... !!!
+
+![Boxplotplot for !!!](../results/boxplot.png){#fig-boxplot width=90%}
+
+We can see from @fig-boxplot ... !!!
 
 ## Methods & Results
 This project utilized a K-nearest neighbours algorithm to predict what cultivar a wine was derived from based on its various chemical properties. First, we read in data from the UCI Machine Learning Repository. It contains data about various wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue.
@@ -58,6 +75,19 @@ We then tidied the data and balanced the classes of the classification variable 
 The data was split into $75%$ for the training set and $25%$ for the test set. To fine tune our model, we used 5 fold cross validation, grid search, and graphical methods to choose the optimal value of $K$. The result was $K = 8$ being used in the k-nn model.
 
 ## Discussion
+![Accuracy plot for !!!](../results/accuracy_plot.png){#fig-accuracy-plot width=90%}
+
+We can see from @fig-accuracy-plot ... !!!
+
+```{r}
+#| label: tbl-metrics
+#| tbl-cap: Model Evaluation metrics.
+
+metrics-tables <- read_csv("../results/metrics.csv")
+knitr::kable(metrics-tables)
+```
+In @tbl-summary-stats, we see that... !!!
+
 Our multiclass k-nn model performed relatively well on the test data, achieving an accuracy estimate of approximately 
 $80%$. The confusion matrix reveals insights into the model's performance across the three cultivar classes. Notably, while the model demonstrated strong precision and recall for predicting cultivar 3, it encountered challenges in accurately classifying cultivar 2. This aligns with our initial hypothesis that certain chemical properties may serve as distinguishing factors for wine cultivars.
 

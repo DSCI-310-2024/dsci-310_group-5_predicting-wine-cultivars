@@ -4,12 +4,12 @@
 "This script cleans the wine data and then calculates summary statistics
 for all numeric columns or a specified subset of columns.
 
-Usage: 02_clean_and_preprocess_then_analyze.R [--columns=<cols>]
+Usage: 02_preprocess.R --input_dir=<input_dir> --output_dir=<output_dir> [--columns=<cols>]
 
 Options:
---columns=<cols>  Comma-separated list of columns to analyze [default: all].
 --input_dir=<input_dir>		Path (including filename) to raw data
 --output_dir=<output_dir>		Path to directory where the results should be saved
+--columns=<cols>  Comma-separated list of columns to analyze [default: all].
 
 " -> doc
 
@@ -18,8 +18,11 @@ library(docopt)
 
 opt <- docopt(doc)
 
-main <- function(input_dir, out_dir, columns) {
-  # data_path <- 'data/wine.data'
+main <- function(input_dir, output_dir, columns) {
+  # Create output_dir if it does not exist
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir)
+  }
   
   # Define the column names
   col_names <- c("cultivar", "alcohol", "malic_acid", "ash", "alcalinity_of_ash", "magnesium", 
@@ -48,9 +51,8 @@ main <- function(input_dir, out_dir, columns) {
                                         sd = ~sd(.x, na.rm = TRUE),
                                         min = ~min(.x, na.rm = TRUE),
                                         max = ~max(.x, na.rm = TRUE)))) %>%
-    write_csv(summary_stats,
-            file.path(out_dir, "summary_stats.csv"))
+    write_csv(summary_stats, file.path(output_dir, "summary_stats.csv"))
 }
 
 # Default columns to 'all' if not specified
-main(opt[["--input_dir"]], opt[["--out_dir"]],opt$columns %||% "all")
+main(opt[["--input_dir"]], opt[["--output_dir"]],opt$columns %||% "all")

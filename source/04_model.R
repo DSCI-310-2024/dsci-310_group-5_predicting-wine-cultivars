@@ -2,7 +2,7 @@ doc <- "
 Performs KNN modeling on the wine dataset and summarizes the results into figures and tables.
 
 Usage:
-  04_model_and_summarize_results.R --data=<data> --output=<output>
+  04_model.R --data=<data> --output=<output>
 
 Options:
   --input_dir=<input_dir>		Path (including filename) to raw data
@@ -17,6 +17,11 @@ library(kknn)
 opts <- docopt(doc)
 
 main <- function(input_dir, output_dir) {
+  # Create output_dir if it does not exist
+  if (!dir.exists(output_dir)) {
+    dir.create(output_dir)
+  }
+  
   # Load the dataset
   data <- read_csv(input_dir)
   
@@ -81,11 +86,11 @@ main <- function(input_dir, output_dir) {
     geom_line() + 
     geom_point() +
     labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
-    ggsave("accuracy_plot.png", device = "png", path = out_dir, width = 10, height = 3)
+    ggsave("accuracy_plot.png", device = "png", path = output_dir, width = 10, height = 3)
 
 
   cat("Model evaluation completed. Results saved to:", output_dir, "\n")
 }
 
 # Run the main function with arguments provided via command-line
-main(opt[["--input_dir"]], opt[["--out_dir"]])
+main(opt[["--input_dir"]], opt[["--output_dir"]])
