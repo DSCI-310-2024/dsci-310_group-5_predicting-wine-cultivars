@@ -2,7 +2,8 @@ doc <- "
 Performs KNN modeling on the wine dataset and summarizes the results into figures and tables.
 
 Usage:
-  04_model.R --data=<data> --output=<output>
+  04_model.R --input_dir=<input_dir> --output_dir=<output_dir>
+  # --data=<data> --output=<output>
 
 Options:
   --input_dir=<input_dir>		Path (including filename) to raw data
@@ -14,83 +15,86 @@ library(docopt)
 library(tidymodels)
 library(kknn)
 
-opts <- docopt(doc)
+opt <- docopt(doc)
 
 main <- function(input_dir, output_dir) {
   # Create output_dir if it does not exist
   if (!dir.exists(output_dir)) {
     dir.create(output_dir)
   }
-  
+
   # Load the dataset
   data <- read_csv(input_dir)
-  
+
+  data$cultivar <- factor(data$cultivar)
+
   # Splitting the data into training and test sets
   set.seed(123)
   split <- initial_split(data, prop = 0.75, strata = cultivar)
   train_data <- training(split)
   test_data <- testing(split)
-  
-  # Preprocessing
-  recipe <- recipe(cultivar ~ ., data = train_data) %>%
-    step_scale(all_predictors()) %>%
-    step_center(all_predictors()) %>%
-    prep()
-  
+
   # Fitting the KNN model
   knn_spec <- nearest_neighbor(weight_func = "rectangular", neighbors = tune()) %>%
     set_engine("kknn") %>%
-    set_mode("classification")
+    set_mode("classification") 
+
+  # Preprocessing
+  recipe <- recipe(cultivar ~ ., data = train_data) %>%
+    step_scale(all_predictors()) %>%
+    step_center(all_predictors())
+
+  # create tibble of values to use for tunning the model
+  grid_vals <- tibble(neighbors = seq(1, 20))
   
   # Using 5-fold cross-validation to select k
   folds <- vfold_cv(train_data, v = 5, strata = cultivar)
-  grid <- tibble(neighbors = seq(1, 20))
   
-  results <- tune_grid(
-    workflow() %>%
-      add_recipe(recipe) %>%
-      add_model(knn_spec),
-    resamples = folds,
-    grid = grid
-  )
+  # Define the workflow with the trained recipe and model
+  fit <- workflow() %>%
+    add_recipe(recipe) %>%
+    add_model(knn_spec) %>%
+    tune_grid(resamples = folds, grid = grid_vals) 
+
+  accuracies <- fit %>% 
+    collect_metrics() %>%
+    filter(.metric == "accuracy")
+  
+  # Generate and save a summary figure of accuracy over k
+  accuracy_plot <- ggplot(accuracies, aes(x = neighbors, y = mean)) +
+    geom_point() +
+    geom_line() +
+    labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
+
+  ggsave(file.path(output_dir, "accuracy_plot.png"), accuracy_plot, device = "png", width = 10, height = 3)
   
   # Determine best k
-  best_k <- results %>%
-    select_best(metric = "accuracy")
+  best_k <- select_best(fit, metric = "accuracy")
   
-  # Fit the final model
-  final_model <- finalize_model(knn_spec, best_k) %>%
-    fit(data = juice(recipe, new_data = NULL))
+  # Create the final model with the tuned parameters
+  final_model <- finalize_model(knn_spec, best_k)  
+
+  # Fit the final model on the training data
+  final_model_fit <- fit(final_model, data = train_data, formula = cultivar ~ .)
   
-  # Prediction and evaluation
-  predictions <- predict(final_model, bake(recipe, new_data = test_data)) %>%
+  # Make predictions on the testing data
+  predictions <- predict(final_model_fit, new_data = test_data) %>%
     bind_cols(test_data)
-  
+
   accuracy <- predictions %>%
     metrics(truth = cultivar, estimate = .pred_class) %>%
-    filter(.metric == "accuracy") %>%
+    filter(.metric == "accuracy")  %>%
     pull(.estimate)
-  
+
   confusion <- predictions %>%
     conf_mat(truth = cultivar, estimate = .pred_class)
-  
+
   # Save the confusion matrix and accuracy as a table
   write_csv(bind_rows(accuracy = tibble(accuracy), confusion = as_tibble(confusion$table)), file.path(output_dir, "metrics.csv"))
- 
-
-  # Generate and save a summary figure of accuracy over k
-  accuracy_plot <- results %>%
-    collect_metrics() %>%
-    filter(.metric == "accuracy") %>%
-    ggplot(aes(x = neighbors, y = mean)) +
-    geom_line() + 
-    geom_point() +
-    labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
-    ggsave("accuracy_plot.png", device = "png", path = output_dir, width = 10, height = 3)
-
-
-  cat("Model evaluation completed. Results saved to:", output_dir, "\n")
+  
 }
 
 # Run the main function with arguments provided via command-line
 main(opt[["--input_dir"]], opt[["--output_dir"]])
+
+

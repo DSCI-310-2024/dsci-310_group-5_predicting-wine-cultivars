@@ -28,11 +28,8 @@ main <- function(input_dir, output_dir) {
     dir.create(output_dir)
   }
 
-  col_names <- c("cultivar", "alcohol", "malic_acid", "ash", "alcalinity_of_ash", "magnesium", 
-                 "total_phenols", "flavanoids", "nonflavanoid_phenols", "proanthocyanins", 
-                 "color_intensity", "hue", "OD280_OD315_of_diluted_wines", "proline")
-  data <- read_csv(input_dir, col_names = col_names, col_types = cols(.default = col_double(), cultivar = col_factor()))
-  
+  data <- read_csv("../data/wine_data.csv")
+
   if (opt$scatter) {
     variable1 <- opt$variable1
     variable2 <- opt$variable2

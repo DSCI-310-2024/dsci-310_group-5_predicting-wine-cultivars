@@ -11,23 +11,23 @@ all: results/variable_stats.csv \
 # summary statistics for an individual variable
 results/variable_stats.csv: source/01_download_data.R
 	Rscript source/01_download_data.R \
-		--input_dir="data/wine.data" \
+		--input_dir="data/wine.csv" \
 		--output_dir="results"
 
 # csv holding summary statistics for 02 
 results/summary_stats.csv: source/02_preprocess.R
-	Rscript source/02_preprocess.R --input_dir="data/wine.data" \
-		--output_dir="results" \
-		--columns="all"
+	Rscript source/02_preprocess.R --input_dir="data/wine.csv" \
+		--output_dir="results" 
+
 
 # eda plots 
 results/scatterplot.png results/boxplot.png: source/03_eda.R  
-	Rscript source/03_eda.R   --input_dir="data/wine.data" \
+	Rscript source/03_eda.R   --input_dir="data/wine.csv" \
 		--output_dir="results"
 
 # Model evaluation information 
 results/accuracy_plot.png results/metrics.csv: source/04_model.R
-	Rscript  source/04_model.R	--input_dir="data/wine.data" \
+	Rscript  source/04_model.R	--input_dir="data/wine.csv" \
 		--output_dir="results"
 
 # render quarto report in HTML and PDF
