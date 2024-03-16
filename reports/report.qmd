@@ -47,17 +47,17 @@ The recorded chemical properties include:
 Using this dataset, our predictive question is: "What is the cultivar of an unknown wine based on the chemical properties?"
 
 Identifying the chemical properties that distinguish cultivars enables farmers to make informed decisions about grape cultivation, aligning grape varieties with desired wine characteristics. By selecting cultivars known for specific flavor profiles or chemical compositions, farmers can tailor vineyard practices to meet market demands effectively. Moreover, this knowledge empowers brewers to experiment with wine compositions, fostering innovation and the creation of novel flavors. Armed with a deep understanding of wine chemistry, brewers can also strategically market their products, ensuring effective communication of the unique qualities and appeal of each wine to consumers.
- 
+
 ## Exploratory Data Analysis
 ```{r}
-#| label: tbl-summarystats
+#| label: tbl-summary-stats
 #| tbl-cap: Summary statistics for the raw data.
 
-summary_stats_tables <- read_csv("../results/summary_stats.csv")
-knitr::kable(summary_stats_tables)
+summary-stats-tables <- read_csv("../results/summary_stats.csv")
+knitr::kable(summary-stats-tables)
 ```
 
-In @tbl-summarystats, we see that... !!!
+In @tbl-summary-stats, we see that... !!!
 
 ![Scatterplot for !!!](../results/scatterplot.png){#fig-scatterplot width=90%}
 
@@ -83,17 +83,13 @@ We can see from @fig-accuracy-plot ... !!!
 #| label: tbl-metrics
 #| tbl-cap: Model Evaluation metrics.
 
-metrics_tables <- read_csv("../results/metrics.csv")
-knitr::kable(metrics_tables)
+metrics-tables <- read_csv("../results/metrics.csv")
+knitr::kable(metrics-tables)
 ```
-In @tbl-metrics, we see that... !!!
+In @tbl-summary-stats, we see that... !!!
 
-```{r}
-accuracy_val <- read_csv("../results/accuracy_score.csv")
-accuracy_val <- round(as.numeric(accuracy_val), digits = 2)
-```
-
-Our multiclass k-nn model performed relatively well on the test data, achieving an accuracy estimate of approximately $`{r} accuracy_val` %$. The confusion matrix reveals insights into the model's performance across the three cultivar classes. Notably, while the model demonstrated strong precision and recall for predicting cultivar 3, it encountered challenges in accurately classifying cultivar 2. This aligns with our initial hypothesis that certain chemical properties may serve as distinguishing factors for wine cultivars.
+Our multiclass k-nn model performed relatively well on the test data, achieving an accuracy estimate of approximately 
+$80%$. The confusion matrix reveals insights into the model's performance across the three cultivar classes. Notably, while the model demonstrated strong precision and recall for predicting cultivar 3, it encountered challenges in accurately classifying cultivar 2. This aligns with our initial hypothesis that certain chemical properties may serve as distinguishing factors for wine cultivars.
 
 However, despite the model's overall success, its limitations in predicting cultivar 2 suggest avenues for improvement. Future iterations of the model could benefit from refining input variables to better capture the nuances of each cultivar's chemical composition. Moreover, our findings underscore the importance of further investigation into the unique characteristics of cultivar 3, which consistently stood out in our predictions.
 

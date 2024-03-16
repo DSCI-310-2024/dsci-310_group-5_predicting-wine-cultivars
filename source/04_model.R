@@ -25,7 +25,7 @@ main <- function(input_dir, output_dir) {
 
   # Load the dataset
   data <- read_csv(input_dir)
-  
+
   data$cultivar <- factor(data$cultivar)
 
   # Splitting the data into training and test sets
@@ -86,16 +86,12 @@ main <- function(input_dir, output_dir) {
     filter(.metric == "accuracy")  %>%
     pull(.estimate)
 
-  write.csv(accuracy, file.path(output_dir, "accuracy_score.csv"), row.names = FALSE)
-  
   confusion <- predictions %>%
     conf_mat(truth = cultivar, estimate = .pred_class)
 
-  confusion_tib <- as_tibble(confusion$table)
-  
   # Save the confusion matrix and accuracy as a table
-  write_csv(confusion_tib, file.path(output_dir, "metrics.csv"))
-# confusion = as_tibble(confusion$table), bind_rows(accuracy = tibble(accuracy), 
+  write_csv(bind_rows(accuracy = tibble(accuracy), confusion = as_tibble(confusion$table)), file.path(output_dir, "metrics.csv"))
+  
 }
 
 # Run the main function with arguments provided via command-line
