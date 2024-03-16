@@ -25,6 +25,7 @@ main <- function(input_dir, output_dir) {
   
   # Read the data
   data <- read_csv(input_dir)
+  data$cultivar <- factor(data$cultivar)
   
   # Calculate and print summary statistics for specified columns
   summary_stats <- data %>%
