@@ -2,3 +2,4 @@
 **/*.md
 .ipynb_checkpoints/predicting_wine_cultivars-checkpoint.ipynb
 .Rproj.user
+.DS_Store
