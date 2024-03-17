@@ -27,7 +27,7 @@ In this project, we will predict what cultivar a wine was derived from based on 
 The data was sourced from the UCI Machine Learning Repository [@data-source]. It contains data about various wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue.
 
 ## Introduction
-Wine is a beverage that has been enjoyed by humans for thousands of years [@cultural-history]. Consequently, humans have a long agricultural history with the grape plant which has led to the development of many different cultivars: grape plants selected and breed for their desirable characteristics [@rise-of-wine]. Our dataset contains information about twelve chemical properties of 178 red wines made from three grape cultivars in Italy.
+Wine is a beverage that has been enjoyed by humans for thousands of years [@cultural-history]. Consequently, humans have a long agricultural history with the grape plant which has led to the development of many different cultivars: grape plants selected and breed for their desirable characteristics [@rise-of-wine]. Our dataset contains information about twelve chemical properties of $178$ red wines made from three grape cultivars in Italy.
 
 The recorded chemical properties include:
 
@@ -52,20 +52,20 @@ Identifying the chemical properties that distinguish cultivars enables farmers t
 ```{r}
 #| label: tbl-summarystats
 #| tbl-cap: Summary statistics for the raw data.
-
 summary_stats_tables <- read_csv("../results/summary_stats.csv")
-knitr::kable(summary_stats_tables)
+
+knitr::kable(summary_stats_tables, format = "markdown", width = "90%") 
 ```
 
-In @tbl-summarystats, we see that... !!!
+In @tbl-summarystats, we have summarized the mean values for each of the measured values from the wine. This gives us a better idea of the normal range of values for each predictor within our model.
 
-![Scatterplot for !!!](../results/scatterplot.png){#fig-scatterplot width=90%}
+![Scatterplot of proline and ash values for each cultivar](../results/scatterplot.png){#fig-scatterplot width=90%}
 
-We can see from @fig-scatterplot ... !!!
+@fig-scatterplot depicts the distribution of proline and ash values for each cultivar. Cultivar 1 has more distinct proline and ash values while Cultivar 2 and Cultivar 3 overlap more substantially.
 
-![Boxplotplot for !!!](../results/boxplot.png){#fig-boxplot width=90%}
+![Boxplotplot of alcohol content for each cultivar](../results/boxplot.png){#fig-boxplot width=90%}
 
-We can see from @fig-boxplot ... !!!
+@fig-boxplot shows distribution of alcohol content for the wines from each cultivar. We can see that each cultivar has a narrow range of values that wines tend to fall within which is relatively distinct for each cultivar. This means this could be an effective predictor of cultivar.
 
 ## Methods & Results
 This project utilized a K-nearest neighbours algorithm to predict what cultivar a wine was derived from based on its various chemical properties. First, we read in data from the UCI Machine Learning Repository. It contains data about various wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue.
@@ -75,9 +75,14 @@ We then tidied the data and balanced the classes of the classification variable 
 The data was split into $75%$ for the training set and $25%$ for the test set. To fine tune our model, we used 5 fold cross validation, grid search, and graphical methods to choose the optimal value of $K$. The result was $K = 8$ being used in the k-nn model.
 
 ## Discussion
-![Accuracy plot for !!!](../results/accuracy_plot.png){#fig-accuracy-plot width=90%}
+![Model accuracy as a function of number of neighbors](../results/accuracy_plot.png){#fig-accuracy-plot width=90%}
 
-We can see from @fig-accuracy-plot ... !!!
+```{r}
+accuracy_val <- read_csv("../results/accuracy_score.csv")
+accuracy_val <- round(as.numeric(accuracy_val), digits = 2)
+```
+
+We can see from @fig-accuracy-plot that accuracy remains high across from k = 1 to k = 20. It peaks at around $`{r} accuracy_val` %$ for $K = 8$ before decreasing and subsequently increasing back to $`{r} accuracy_val` %$ from $K = 17$ to $K = 19$. This is a high accuracy value and will increase the power of our predictive model.
 
 ```{r}
 #| label: tbl-metrics
@@ -86,7 +91,7 @@ We can see from @fig-accuracy-plot ... !!!
 metrics_tables <- read_csv("../results/metrics.csv")
 knitr::kable(metrics_tables)
 ```
-In @tbl-metrics, we see that... !!!
+@tbl-metrics shows how well our model is able to predict the cultivar type from predictor variables. We see that it accurately predicts cultivar for $44$ of $45$ data points and only mistakes cultivar 1 for cultivar 2 once. Therefore, our model has a very high success rate and will be able to accurately predict the cultivar in most cases.
 
 ```{r}
 accuracy_val <- read_csv("../results/accuracy_score.csv")
