@@ -52,12 +52,21 @@ Identifying the chemical properties that distinguish cultivars enables farmers t
 ```{r}
 #| label: tbl-summarystats
 #| tbl-cap: Summary statistics for the raw data.
+#| tbl-colwidths: [10,10]
 summary_stats_tables <- read_csv("../results/summary_stats.csv")
 
-knitr::kable(summary_stats_tables, format = "markdown", width = "90%") 
+# split into groups by variable
+summary_stats_tables_split <- split.default(summary_stats_tables, ceiling(seq_along(summary_stats_tables) / 4))
+
+# make tables
+for (i in seq_along(summary_stats_tables_split)) {
+    print(knitr::kable(summary_stats_tables_split[[i]], format = "markdown"))
+  cat("\n\n")
+}
+
 ```
 
-In @tbl-summarystats, we have summarized the mean values for each of the measured values from the wine. This gives us a better idea of the normal range of values for each predictor within our model.
+In @tbl-summarystats, we have summarized the mean, maximum, minimum and standard deviation for all predictors. This gives us a better idea of the normal range of values for each predictor within our model.
 
 ![Scatterplot of proline and ash values for each cultivar](../results/scatterplot.png){#fig-scatterplot width=90%}
 
