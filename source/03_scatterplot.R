@@ -19,7 +19,7 @@ library(ggplot2)
 
 opt <- docopt(doc)
 
-main <- function(scatter1, scatter2, input_dir, output_dir) {
+create_output_dir <- function(scatter1, scatter2, input_dir, output_dir) {
   # Create output_dir if it does not exist
   if (!dir.exists(output_dir)) {
     dir.create(output_dir)
@@ -40,4 +40,4 @@ main <- function(scatter1, scatter2, input_dir, output_dir) {
   
   
 }
-main(opt[["--scatter1"]], opt[["--scatter2"]], opt[["--input_dir"]], opt[["--output_dir"]])
+create_output_dir(opt[["--scatter1"]], opt[["--scatter2"]], opt[["--input_dir"]], opt[["--output_dir"]])
