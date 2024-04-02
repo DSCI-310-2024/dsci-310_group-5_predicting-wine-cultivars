@@ -1,7 +1,7 @@
 #' This function calculates the minimum, maximum, mean, and standard deviation for all numeric columns
 #' in a given dataframe and saves the results to a CSV file.
 #'
-#' @param input_dir    The file path to the input CSV file.
+#' @param data    The file path to the input CSV file.
 #' @param output_dir   The directory where the output CSV file will be saved.
 #' @param output_name  The name of the output CSV file.
 #'
@@ -11,26 +11,10 @@
 #' # Calculate summary statistics for wine_data and save results to 'results/' directory
 #' summarize_all("data/wine.csv", "results/", "summary_stats.csv")
 
-doc <- "
-Usage:
-  calc_stats.R --input_dir=<input_dir> --output_dir=<output_dir> --output_name=<output_name>
-
-Options:
-  --input_dir=<input_dir>        Path to the input CSV file.
-  --output_dir=<output_dir>      Path to the output directory.
-  --output_name=<output_name>    Name for the output CSV file.
-"
-
-library(docopt)
-library(readr)
 library(tidyverse)
 
-opt <- docopt(doc)
 
-summarize_all <- function(input_dir, output_dir, output_name) {
-    # Read the data in the input_dir as a csv
-    data <- read_csv(input_dir)
-    
+summarize_all <- function(data, output_dir, output_name) {
     # Select only numeric columns
     numeric_columns <- data %>%
         select_if(is.numeric)
@@ -60,7 +44,6 @@ summarize_all <- function(input_dir, output_dir, output_name) {
     # Save the output to a csv
     write_csv(summary_df, file.path(output_dir, output_name))  
   }
-summarize_all(opt[["--input_dir"]], opt[["--output_dir"]], opt[["--output_name"]])
 
 
 

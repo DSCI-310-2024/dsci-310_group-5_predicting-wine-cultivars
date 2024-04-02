@@ -23,10 +23,10 @@ source("R/create_output_dir.R")
 opt <- docopt(doc)
 
 # call function to create output directory if it doesnt exist
-create_output_dir(opt[["--input_dir"]], opt[["--output_dir"]])
+data <- create_output_dir(input_dir, output_dir)
 
 # call function calculating summary statistics 
-summarize_all(opt[["--input_dir"]], opt[["--output_dir"]], opt[["--output_name"]]) 
+summarize_all(data, output_dir, output_name) 
 
 # Rscript R/calc_stats.R --input_dir="../data/wine.csv" --output_dir="../results" --output_name="stats.csv"
 
