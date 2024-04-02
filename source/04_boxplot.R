@@ -1,7 +1,7 @@
 # author: Group 5
 # date: March 13 2024
 
-"This script !!.
+"This script creates a boxplot.
 
 Usage: 04_boxplot.R --variable1=<variable1> --input_dir=<input_dir> --output_dir=<output_dir> 
 
@@ -38,4 +38,3 @@ main <- function(variable1, input_dir, output_dir) {
   ggsave(file.path(output_dir, "boxplot.png"), box, device = "png", width = 5, height = 3)
   
 }
-main(opt[["--variable1"]], opt[["--input_dir"]], opt[["--output_dir"]])

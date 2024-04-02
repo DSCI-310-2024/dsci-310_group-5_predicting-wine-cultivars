@@ -28,6 +28,5 @@ create_output_dir(opt[["--input_dir"]], opt[["--output_dir"]])
 # call function calculating summary statistics 
 summarize_all(opt[["--input_dir"]], opt[["--output_dir"]], opt[["--output_name"]]) 
 
-# Rscript R/calc_stats.R --input_dir="../data/wine.csv" --output_dir="../results" --output_name="stats.csv"
 
 

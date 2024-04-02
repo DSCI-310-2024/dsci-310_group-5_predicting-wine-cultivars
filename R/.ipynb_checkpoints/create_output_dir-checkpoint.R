@@ -16,20 +16,6 @@
 #' @examples
 #' create_output_dir('alcohol', 'total_phenols', '../data/wine_data.csv', '../results/')
 
-doc <- "
-Usage:
-  create_output_dir.R --input_dir=<input_dir> --output_dir=<output_dir>
-
-Options:
-  --input_dir=<input_dir>      Path to the input CSV file.
-  --output_dir=<output_dir>    Path to directory where the results should be saved
-"
-
-library(docopt)
-library(tidyverse)
-
-opt <- docopt(doc)
-
 create_output_dir <- function(input_dir, output_dir) {
   # create output_dir if it does not exist
   if (!dir.exists(output_dir)) {
@@ -40,7 +26,4 @@ create_output_dir <- function(input_dir, output_dir) {
   data <- readr::read_csv(input_dir)
   # change cultivar into a factor
   data$cultivar <- factor(data$cultivar) 
-  return(data)
 }
-create_output_dir(opt[["--input_dir"]], opt[["--output_dir"]])
-

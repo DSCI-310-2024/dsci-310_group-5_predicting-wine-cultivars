@@ -25,10 +25,10 @@ source("R/create_output_dir.R")
 # specify the variables
 opt <- docopt(doc)
 
-# call function to create output directory if it doesnt exist
+# run the final function on our variables
 create_output_dir(opt[["--input_dir"]], opt[["--output_dir"]])
 
 # call function for making a scatterplot
-create_scatter_plot(opt[["--data"]], opt[["--scatter1"]], opt[["--scatter2"]], opt[["--output_dir"]])
+scatter <- create_scatter_plot(opt[["--data"]], opt[["--scatter1"]], opt[["--scatter2"]], opt[["--output_dir"]])
 
 

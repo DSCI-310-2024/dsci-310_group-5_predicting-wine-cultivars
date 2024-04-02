@@ -1,7 +1,7 @@
 # load the necessary libraries
 library(testthat)
 
-# call in the function we are testing
+# call in the function that we are testing
 source("../../R/create_output_dir.R")
 
 # test that the output directory has been created
