@@ -15,28 +15,21 @@ Options:
 library(tidyverse)
 library(docopt)
 
+# call in the functions that we created for this script
+source("R/calc_stats.R")
+source("R/create_output_dir.R")
+
+# specify the variables
 opt <- docopt(doc)
 
 main <- function(input_dir, output_dir) {
-  # Create output_dir if it does not exist
-  if (!dir.exists(output_dir)) {
-    dir.create(output_dir)
-  }
-  
-  # Read the data
-  data <- read_csv(input_dir)
-  data$cultivar <- factor(data$cultivar)
-  
-  # Calculate and print summary statistics for specified columns
-  summary_stats <- data %>%
-    select(alcohol:proline) %>%
-    summarise(across(everything(), list(mean = ~mean(.x, na.rm = TRUE),
-                                        sd = ~sd(.x, na.rm = TRUE),
-                                        min = ~min(.x, na.rm = TRUE),
-                                        max = ~max(.x, na.rm = TRUE))))
+    # call function to create output directory if it doesnt exist
+    data <- create_output_dir(input_dir, output_dir)
 
-  write_csv(summary_stats, file.path(output_dir, "summary_stats.csv"))  
+    # call function calculating summary statistics 
+    stats <- summarize_all(data) 
+
+    # write the statistics dataframe to a csv file 
+    write_csv(stats, file.path(output_dir, "summary_stats.csv")) 
 }
-
-
-main(opt[["--input_dir"]], opt[["--output_dir"]])  
+main(opt[["--input_dir"]], opt[["--output_dir"]])

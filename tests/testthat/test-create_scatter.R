@@ -67,6 +67,3 @@ test_that("`create_scatter_plot` assigns different colors to different cultivars
 })
 
 # All 15 tests pass
-
-
-

@@ -10,6 +10,8 @@
 #' @examples
 #' create_scatter_plot(wine_data, 'alcohol', 'total_phenols')
 
+library(tidyverse)
+
 create_scatter_plot <- function(data, scatter1, scatter2) {
   # first check if scatter1 and scatter2 exist in the data
   if (!scatter1 %in% colnames(data) || !scatter2 %in% colnames(data)) {
@@ -17,10 +19,16 @@ create_scatter_plot <- function(data, scatter1, scatter2) {
   }
   
   # make the scatter plot
-  ggplot(data, aes(x = !!sym(scatter1), y = !!sym(scatter2), color = cultivar)) +
+  scatter <- ggplot(data, aes(x = !!sym(scatter1), y = !!sym(scatter2), color = cultivar)) +
     geom_point() +
     labs(
       title = paste("Scatter Plot of", scatter1, "vs", scatter2),
       x = scatter1,
       y = scatter2)
+
+  # Return the plot
+  return(scatter)
+    
 }
+
+

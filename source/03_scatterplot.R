@@ -25,5 +25,15 @@ source("R/create_output_dir.R")
 # specify the variables
 opt <- docopt(doc)
 
-# run the final function on our variables
-create_output_dir(opt[["--scatter1"]], opt[["--scatter2"]], opt[["--input_dir"]], opt[["--output_dir"]])
+main <- function(scatter1, scatter2, input_dir, output_dir) {
+    # call function to create output directory if it doesnt exist
+    data <- create_output_dir(input_dir, output_dir)
+
+    # call function for making a scatterplot
+    scatterplot <- create_scatter_plot(data, scatter1, scatter2)
+
+    ggsave(file.path(output_dir, "scatterplot.png"), scatterplot, device = "png", width = 5, height = 3)
+}
+
+main(opt[["--scatter1"]],opt[["--scatter2"]],opt[["--input_dir"]], opt[["--output_dir"]])
+

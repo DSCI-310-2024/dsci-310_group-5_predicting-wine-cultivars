@@ -1,25 +1,17 @@
-# source in the create_scatter function
-source("../../R/create_scatter.R")
-
-# function input for create_output_dir function
-wine_test_data <- data.frame(
+# function inputs
+unfactored_populated_data <- data.frame(
   alcohol = c(12, 13, 14),
   total_phenols = c(2, 3, 4),
   cultivar = c("A", "B", "A")
 )
+write.csv(unfactored_populated_data, "data/unfactored_populated_data.csv")
+unfactored_populated_data_dir <- "data/unfactored_populated_data.csv"
 
-# dataframe with empty columns
-empty_data <- data.frame(
-  alcohol = c(),
-  total_phenols = c(),
-  cultivar = c()
-)
+factored_populated_data <- factor(unfactored_populated_data$cultivar) 
 
-# individuals variables for testing
-input_dir <- "../../data/wine_data.csv" # specify the correct input directory
-fake_input_dir <- "fake_input_dir/" # invalid input directory
-output_dir <- tempdir() # specify the correct output directory
-invalid_scatter1 <- "scatter1" # giving a invalid variable for the scatterplot
-invalid_scatter2 <- "scatter2" # giving a invalid variable for the scatterplot
+output_dir <- "data"
+invalid_input_dir <- "invalid/input/dir"
+int_data <- 5
 
-# no expected output because it is just saving a plot to somewhere
+# expected function output
+test_output_dir <- "data"
