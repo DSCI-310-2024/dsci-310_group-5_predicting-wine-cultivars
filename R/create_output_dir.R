@@ -16,7 +16,7 @@
 #' @examples
 #' create_output_dir('alcohol', 'total_phenols', '../data/wine_data.csv', '../results/')
 
-create_output_dir <- function(scatter1, scatter2, input_dir, output_dir) {
+create_output_dir <- function(input_dir, output_dir) {
   # create output_dir if it does not exist
   if (!dir.exists(output_dir)) {
     dir.create(output_dir)
@@ -25,11 +25,5 @@ create_output_dir <- function(scatter1, scatter2, input_dir, output_dir) {
   # read the data in from the input directory
   data <- readr::read_csv(input_dir)
   # change cultivar into a factor
-  data$cultivar <- factor(data$cultivar)
-  
-  # call function for making a scatterplot
-  scatter <- create_scatter_plot(data, scatter1, scatter2)
-  
-  # save the scatterplot to our output directory as a png
-  ggsave(file.path(output_dir, "scatterplot.png"), scatter, device = "png", width = 5, height = 3)
+  data$cultivar <- factor(data$cultivar) 
 }
