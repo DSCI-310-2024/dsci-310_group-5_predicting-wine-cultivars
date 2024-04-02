@@ -12,7 +12,7 @@
 
 library(tidyverse)
 
-create_scatter_plot <- function(data, scatter1, scatter2, output_dir) {
+create_scatter_plot <- function(data, scatter1, scatter2) {
   # first check if scatter1 and scatter2 exist in the data
   if (!scatter1 %in% colnames(data) || !scatter2 %in% colnames(data)) {
     stop("One or both of the inputted variables do not exist in the dataframe")

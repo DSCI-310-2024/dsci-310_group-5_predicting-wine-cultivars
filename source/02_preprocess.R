@@ -22,13 +22,14 @@ source("R/create_output_dir.R")
 # specify the variables
 opt <- docopt(doc)
 
-# call function to create output directory if it doesnt exist
-data <- create_output_dir(input_dir, output_dir)
+main <- function(input_dir, output_dir) {
+    # call function to create output directory if it doesnt exist
+    data <- create_output_dir(input_dir, output_dir)
 
-# call function calculating summary statistics 
-stats <- summarize_all(data) 
+    # call function calculating summary statistics 
+    stats <- summarize_all(data) 
 
-# write the statistics dataframe to a csv file 
-write_csv(stats, file.path(output_dir, output_name)) 
-
-
+    # write the statistics dataframe to a csv file 
+    write_csv(stats, file.path(output_dir, "summary_stats.csv")) 
+}
+main(opt[["--input_dir"]], opt[["--output_dir"]])
