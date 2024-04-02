@@ -37,3 +37,5 @@ main <- function(variable1, input_dir, output_dir) {
   ggsave(file.path(output_dir, "boxplot.png"), box, device = "png", width = 5, height = 3)
 
 }
+
+main(opt[["--variable1"]],opt[["--input_dir"]], opt[["--output_dir"]])
