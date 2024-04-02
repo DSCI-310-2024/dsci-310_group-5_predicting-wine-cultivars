@@ -16,9 +16,7 @@ mixed_2_num <- data.frame(
     d = c(5:8),
     stringsAsFactors = FALSE)
 
-output_dir <- "../../data/wine_data.csv" # specify the correct input directory
-fake_output_dir <- "fake_input_dir/" # invalid input directory
-
+int_data <- 4
 
 # expected function outputs 
 only_nums_2_obs_output <- data.frame(

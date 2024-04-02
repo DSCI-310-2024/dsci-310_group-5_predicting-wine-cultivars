@@ -26,8 +26,9 @@ opt <- docopt(doc)
 data <- create_output_dir(input_dir, output_dir)
 
 # call function calculating summary statistics 
-summarize_all(data, output_dir, output_name) 
+stats <- summarize_all(data) 
 
-# Rscript R/calc_stats.R --input_dir="../data/wine.csv" --output_dir="../results" --output_name="stats.csv"
+# write the statistics dataframe to a csv file 
+write_csv(stats, file.path(output_dir, output_name)) 
 
 

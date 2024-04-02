@@ -26,8 +26,8 @@ create_scatter_plot <- function(data, scatter1, scatter2, output_dir) {
       x = scatter1,
       y = scatter2)
 
-  # save the scatterplot to our output directory as a png
-  ggsave(file.path(output_dir, "scatterplot.png"), scatter, device = "png", width = 5, height = 3)
+  # Return the plot
+  return(scatter)
     
 }
 

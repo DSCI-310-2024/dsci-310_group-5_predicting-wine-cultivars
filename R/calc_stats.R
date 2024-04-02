@@ -3,21 +3,24 @@
 #'
 #' @param data    The file path to the input CSV file.
 #' @param output_dir   The directory where the output CSV file will be saved.
-#' @param output_name  The name of the output CSV file.
 #'
-#' @return A CSV file containing summary statistics for each numeric column 
+#' @return A dataframe containing the calculations
 #' @export
 #' @examples
 #' # Calculate summary statistics for wine_data and save results to 'results/' directory
 #' summarize_all("data/wine.csv", "results/", "summary_stats.csv")
 
-library(tidyverse)
+library(dplyr)
 
 
-summarize_all <- function(data, output_dir, output_name) {
+summarize_all <- function(data) {
+    if (!is.data.frame(data)) {
+        stop("`data` should be a data frame or data frame extension (e.g. a tibble)")
+    }
+  
     # Select only numeric columns
     numeric_columns <- data %>%
-        select_if(is.numeric)
+        dplyr::select_if(is.numeric)
     
     # Produce an error if there are no numeric columns
     if (is_empty <- nrow(numeric_columns) == 0 || ncol(numeric_columns) == 0) {
@@ -41,8 +44,8 @@ summarize_all <- function(data, output_dir, output_name) {
         summary_df["SD", var] <- sd(numeric_columns[[var]], na.rm = TRUE)
     }
 
-    # Save the output to a csv
-    write_csv(summary_df, file.path(output_dir, output_name))  
+    # Return the dataframe of statistics 
+    return(summary_df) 
   }
 
 
