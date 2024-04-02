@@ -22,12 +22,14 @@ library(tidyverse)
 ```
 
 ## Summary
-In this project, we will predict what cultivar a wine was derived from based on its chemical properties.
+In this project, we asked whether we can predict what cultivar a wine was derived from based on its chemical properties.
 
-The data was sourced from the UCI Machine Learning Repository [@data-source]. It contains data about various wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue.
+The data was sourced from the UCI Machine Learning Repository [@data-source]. It contains data about $178$ wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue. 
+
+Using a k-nearest neighbors algorithm we attempted to predict the cultivar of an unknown wine based on physiochemical properties such as alcohol content and magnesium levels. Our model achieved 98% accuracy on our test data, but struggled to accurately predict the origin of wines from cultivar 2. This demonstrates that most cultivars are strongly distinguished by their physiochemical properties with some overlap between similar cultivars. Our analysis effectively identified chemical properties that strongly distinguish cultivars. This provides valueable information for winemakers about which grapes to cultivate to achieve their desired wine characteristics and informs future innovation in the wine industry.
 
 ## Introduction
-Wine is a beverage that has been enjoyed by humans for thousands of years [@cultural-history]. Consequently, humans have a long agricultural history with the grape plant which has led to the development of many different cultivars: grape plants selected and breed for their desirable characteristics [@rise-of-wine]. Our dataset contains information about twelve chemical properties of $178$ red wines made from three grape cultivars in Italy.
+Wine is a beverage that has been enjoyed by humans for thousands of years [@cultural-history]. Consequently, humans have a long agricultural history with the grape plant which has led to the development of many different cultivars: grape plants selected and breed for their desirable characteristics [@rise-of-wine]. Our dataset contains information about twelve chemical properties of $178$ red wines made from three grape cultivars in Italy [@data-source].
 
 The recorded chemical properties include:
 
