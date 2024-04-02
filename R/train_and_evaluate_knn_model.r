@@ -23,7 +23,7 @@
 train_and_evaluate_knn_model <- function(train_data, num_folds, range_neighbors) {
 
   # Preprocessing:
-  recipe <- recipe(Species ~ ., data = train_data) %>%
+  recipe <- recipe(cultivar ~ ., data = train_data) %>%
     step_scale(all_predictors()) %>%
     step_center(all_predictors())
 
@@ -36,7 +36,7 @@ train_and_evaluate_knn_model <- function(train_data, num_folds, range_neighbors)
   grid_vals <- tibble(neighbors = range_neighbors)
   
   # Cross-validation setup:
-  folds <- vfold_cv(train_data, v = num_folds, strata = Species)
+  folds <- vfold_cv(train_data, v = num_folds, strata = cultivar)
   
   # Model tuning:
   fit <- workflow() %>%

@@ -29,6 +29,3 @@ test_that("train_and_evaluate_knn_model works on wine dataset", {
   expect_true("neighbors" %in% names(results$accuracies))
   expect_true("mean" %in% names(results$accuracies))
 })
-
-# Run the tests
-test()
