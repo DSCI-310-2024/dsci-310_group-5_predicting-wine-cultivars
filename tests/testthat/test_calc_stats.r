@@ -2,7 +2,7 @@
 library(testthat)
 
 # call in the function we are testing
-source("../../R/calc_stats.R")
+source("R/calc_stats.R")
 
 test_that("`calc_stats.R` should return a data frame with all the columns of 'data' as rows", {
   # tests to be added here
