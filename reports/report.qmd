@@ -48,7 +48,7 @@ The recorded chemical properties include:
 11. The ratio of OD280 to OD315 of diluted wines (protein concentration)
 12. Proline (main amino acid in wine, important aspect of the flavour) [@id-categories].
 
-Using this dataset, our predictive question is: "What is the cultivar of an unknown wine based on the chemical properties?"
+Using this dataset, our predictive question is: "Can the cultivar a wine is derived from be reliably determined through physiochemical properties?"
 
 Identifying the chemical properties that distinguish cultivars enables farmers to make informed decisions about grape cultivation, aligning grape varieties with desired wine characteristics. By selecting cultivars known for specific flavor profiles or chemical compositions, farmers can tailor vineyard practices to meet market demands effectively. Moreover, this knowledge empowers brewers to experiment with wine compositions, fostering innovation and the creation of novel flavors. Armed with a deep understanding of wine chemistry, brewers can also strategically market their products, ensuring effective communication of the unique qualities and appeal of each wine to consumers.
 
