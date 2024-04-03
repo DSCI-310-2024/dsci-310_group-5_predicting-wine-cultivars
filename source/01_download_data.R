@@ -15,7 +15,7 @@ opt <- docopt(doc)
 
 main <- function() { 
   # read in data
-  data <- read_csv("https://raw.githubusercontent.com/DSCI-310-2024/DSCI-310-Group-5/qmd_doc/data/wine.csv")
+  data <- read_csv("https://raw.githubusercontent.com/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars/main/data/wine.csv")
   write_csv(data,"data/wine_data.csv")
 }
 

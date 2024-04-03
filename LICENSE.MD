@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 ## Data
 
-The data used is licensed under a Creative Commons Attribution 4.0 International License.
+The data used is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 Attribution 4.0 International
 
