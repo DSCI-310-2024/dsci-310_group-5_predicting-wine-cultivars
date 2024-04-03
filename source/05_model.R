@@ -34,47 +34,20 @@ main <- function(input_dir, output_dir) {
   train_data <- training(split)
   test_data <- testing(split)
 
-  # Fitting the KNN model
-  knn_spec <- nearest_neighbor(weight_func = "rectangular", neighbors = tune()) %>%
-    set_engine("kknn") %>%
-    set_mode("classification") 
-
-  # Preprocessing
-  recipe <- recipe(cultivar ~ ., data = train_data) %>%
-    step_scale(all_predictors()) %>%
-    step_center(all_predictors())
-
-  # create tibble of values to use for tunning the model
-  grid_vals <- tibble(neighbors = seq(1, 20))
-  
-  # Using 5-fold cross-validation to select k
-  folds <- vfold_cv(train_data, v = 5, strata = cultivar)
-  
-  # Define the workflow with the trained recipe and model
-  fit <- workflow() %>%
-    add_recipe(recipe) %>%
-    add_model(knn_spec) %>%
-    tune_grid(resamples = folds, grid = grid_vals) 
-
-  accuracies <- fit %>% 
-    collect_metrics() %>%
-    filter(.metric == "accuracy")
+  # Using train_and_evaluate_knn_model function to train model
+  neighbors_range <- seq(1, 20)
+  results <- train_and_evaluate_knn_model(train_data, 5, neighbors_range)
   
   # Generate and save a summary figure of accuracy over k
-  accuracy_plot <- ggplot(accuracies, aes(x = neighbors, y = mean)) +
+  accuracy_plot <- ggplot(results$accuracies, aes(x = neighbors, y = mean)) +
     geom_point() +
     geom_line() +
     labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
 
   ggsave(file.path(output_dir, "accuracy_plot.png"), accuracy_plot, device = "png", width = 10, height = 3)
   
-  # Determine best k
-  best_k <- select_best(fit, metric = "accuracy")
-  
-  # Create the final model with the tuned parameters
-  final_model <- finalize_model(knn_spec, best_k)  
-
-  # Fit the final model on the training data
+  # Create the final model and fit it on the training data
+  final_model <- finalize_model(results$fitted_model, results$best_k)  
   final_model_fit <- fit(final_model, data = train_data, formula = cultivar ~ .)
   
   # Make predictions on the testing data

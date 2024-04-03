@@ -14,7 +14,7 @@
 #' @examples
 #' 
 #' set.seed(123)
-#' data_split <- initial_split(wine_data, prop = 0.75, strata = Species)
+#' data_split <- initial_split(wine_data, prop = 0.75, strata = cultivar)
 #' train_data <- training(data_split)
 #' neighbors_range <- seq(1, 20)
 #' 
