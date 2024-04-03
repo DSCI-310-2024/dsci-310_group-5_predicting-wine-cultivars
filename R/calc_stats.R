@@ -31,15 +31,13 @@ summarize_all <- function(data) {
 
     # Create an empty data frame to store statistics
     summary_df <- data.frame(
-        matrix(NA, nrow = 4, ncol = length(var_names)),
-        row.names = c("Min", "Max", "Mean", "SD")
+        matrix(NA, nrow = 2, ncol = length(var_names)),
+        row.names = c("Mean", "SD")
     )
     colnames(summary_df) <- var_names
 
     # Calculate statistics for each column
     for (var in var_names) {
-        summary_df["Min", var] <- min(numeric_columns[[var]], na.rm = TRUE)
-        summary_df["Max", var] <- max(numeric_columns[[var]], na.rm = TRUE)
         summary_df["Mean", var] <- mean(numeric_columns[[var]], na.rm = TRUE)
         summary_df["SD", var] <- sd(numeric_columns[[var]], na.rm = TRUE)
     }
