@@ -14,3 +14,6 @@ ensure_directory_exists <- function(path) {
     dir.create(path, recursive = TRUE)
   }
 }
+
+temp_dir <- tempdir()
+wine_data_fake <- "this is not a data frame"
