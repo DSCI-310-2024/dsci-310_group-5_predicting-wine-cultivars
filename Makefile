@@ -19,19 +19,20 @@ results/summary_stats.csv: source/02_preprocess.R
 
 # scatter plot
 results/scatterplot.png: source/03_scatterplot.R 
-	Rscript source/03_scatterplot.R --scatter1=ash --scatter2=proline \
+	Rscript source/03_scatterplot.R --scatter1=ash --scatter2=proline --color=cultivar \
 	--input_dir="data/wine.csv"  \
 	--output_dir="results"
 
 # box plot
 results/boxplot.png: source/04_boxplot.R 
-	Rscript source/04_boxplot.R --variable1=alcohol --input_dir="data/wine.csv" \
+	Rscript source/04_boxplot.R --variable1=cultivar --variable2=alcohol --input_dir="data/wine.csv" \
 	--output_dir="results"
 
 # Model evaluation information 
 results/accuracy_plot.png results/metrics.csv: source/05_model.R
 	Rscript  source/05_model.R	--input_dir="data/wine.csv" \
-		--output_dir="results"
+		--output_dir="results" \
+		--response=cultivar
 
 # render quarto report in HTML and PDF
 reports/report.html: results reports/report.qmd

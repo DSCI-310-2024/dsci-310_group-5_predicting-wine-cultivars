@@ -3,10 +3,11 @@
 
 "This script creates a boxplot.
 
-Usage: 04_boxplot.R --variable1=<variable1> --input_dir=<input_dir> --output_dir=<output_dir> 
+Usage: 04_boxplot.R --variable1=<variable1> --variable2=<variable2> --input_dir=<input_dir> --output_dir=<output_dir> 
 
 Options:
---variable1=<variable1>     Variable for plot
+--variable1=<variable1>     X Variable for plot
+--variable2=<variable2>     Y Variable for the plot
 --input_dir=<input_dir>		Path (including filename) to raw data
 --output_dir=<output_dir>		Path to directory where the results should be saved
 
@@ -15,27 +16,19 @@ Options:
 library(tidyverse)
 library(docopt)
 library(ggplot2)
+library(predictcultivar)
 
 opt <- docopt(doc)
 
-main <- function(variable1, input_dir, output_dir) {
-  # Create output_dir if it does not exist
-  if (!dir.exists(output_dir)) {
-    dir.create(output_dir)
-  }
+main <- function(variable1, variable2, input_dir, output_dir) {
+  # call function to create output directory if it doesnt exist
+  create_output_dir(output_dir)
   
-  data <- read_csv(input_dir)
-  data$cultivar <- factor(data$cultivar)
+  # read and factor the data
+  data <- read_and_factor(input_dir)
   
-  box <-ggplot(data, aes(x = cultivar, y = !!sym(variable1), color = cultivar)) +
-    geom_boxplot() +
-    labs(
-      title = paste("Boxplot of", variable1, "by Cultivar"),
-      x = "Cultivar",
-      y = variable1)  
-  
-  ggsave(file.path(output_dir, "boxplot.png"), box, device = "png", width = 5, height = 3)
+  box <- create_boxplot(data, variable1, variable2)
 
 }
 
-main(opt[["--variable1"]],opt[["--input_dir"]], opt[["--output_dir"]])
+main(opt[["--variable1"]],opt[["--variable2"]],opt[["--input_dir"]], opt[["--output_dir"]])
