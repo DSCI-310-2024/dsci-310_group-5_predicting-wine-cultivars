@@ -29,7 +29,7 @@ RUN conda install -y \
     r-base=4.3.2 \
     r-tidyverse=2.0.0 \
     r-tidymodels=1.1.1 \
-    r-repr=1.1.3 \
+    #r-repr=1.1.7 \
     r-gridextra=2.3 \
     r-kknn=1.3.1 \
     r-dplyr=1.1.4 \
