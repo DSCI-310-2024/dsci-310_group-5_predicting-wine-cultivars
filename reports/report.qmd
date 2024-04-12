@@ -103,17 +103,6 @@ After choosing $k$, all variables were centered and scaled before being passed t
 <br><br>
 
 ## Results & Discussion
-![Model accuracy as a function of number of neighbors](../results/accuracy_plot.png){#fig-accuracy-plot width=90%}
-
-```{r}
-accuracy_val <- read_csv("../results/accuracy_score.csv")
-accuracy_val <- round(as.numeric(accuracy_val), digits = 2)
-```
-
-We can see from @fig-accuracy-plot that accuracy remains high across from k = 1 to k = 20. It peaks at around $`{r} accuracy_val` %$ for $K = 8$ before decreasing and subsequently increasing back to $`{r} accuracy_val` %$ from $K = 17$ to $K = 19$. This is a high accuracy value and will increase the power of our predictive model.
-
-<br>
-
 ```{r}
 #| label: tbl-metrics
 #| tbl-cap: Model Evaluation metrics.
@@ -121,6 +110,7 @@ We can see from @fig-accuracy-plot that accuracy remains high across from k = 1 
 metrics_tables <- read_csv("../results/metrics.csv")
 knitr::kable(metrics_tables)
 ```
+
 @tbl-metrics shows how well our model is able to predict the cultivar type from predictor variables. We see that it accurately predicts cultivar for $44$ of $45$ data points and only mistakes cultivar 1 for cultivar 2 once. Therefore, our model has a very high success rate and will be able to accurately predict the cultivar in most cases.
 
 ```{r}
