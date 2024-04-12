@@ -14,20 +14,21 @@ Options:
 
 library(tidyverse)
 library(docopt)
+library(predictcultivar)
 
-# call in the functions that we created for this script
-source("R/calc_stats.R")
-source("R/create_output_dir.R")
 
 # specify the variables
 opt <- docopt(doc)
 
 main <- function(input_dir, output_dir) {
     # call function to create output directory if it doesnt exist
-    data <- create_output_dir(input_dir, output_dir)
+    create_output_dir(output_dir)
+  
+    # read and factor the data
+    data <- read_and_factor(input_dir)
 
     # call function calculating summary statistics 
-    stats <- summarize_all(data) 
+    stats <- calc_stats(data) 
 
     # write the statistics dataframe to a csv file 
     write_csv(stats, file.path(output_dir, "summary_stats.csv")) 
