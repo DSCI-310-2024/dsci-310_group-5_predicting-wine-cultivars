@@ -45,7 +45,7 @@ docker pull ajackman48/dsci-310-group-5:latest
 ```
 5. Run this command in the bash terminal to delete previous versions of the analysis
 ```
-docker compose run --rm analysis-env make clean-all
+docker compose run --rm analysis-env make clean
 ```
 7. Run this command in the bash terminal to recreate the entire analysis
 ```
