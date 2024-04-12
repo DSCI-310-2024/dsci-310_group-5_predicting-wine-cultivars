@@ -7,17 +7,17 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev \
     git \
-    r-cran-GGally=2.1.1 \
-    r-cran-tidyverse=1.3.1 \
-    r-cran-tidymodels=0.1.3 \
-    r-cran-repr=1.1.3 \
-    r-cran-gridExtra=2.3 \
-    r-cran-kknn=1.2.1 \
-    r-cran-dplyr=1.0.7 \
-    r-cran-knitr=1.36 \
-    r-cran-devtools=2.4.5 \
-    r-cran-testthat=3.2.1 \
-    r-cran-docopt=0.7.1 
+    r-cran-ggally \
+    r-cran-tidyverse \
+    r-cran-tidymodels \
+    r-cran-repr \
+    r-cran-gridextra \
+    r-cran-kknn \
+    r-cran-dplyr \
+    r-cran-knitr \
+    r-cran-devtools \
+    r-cran-testthat \
+    r-cran-docopt
 
 # install package from github  
 RUN R -e 'devtools::install_github("DSCI-310-2024/predictcultivar")'
