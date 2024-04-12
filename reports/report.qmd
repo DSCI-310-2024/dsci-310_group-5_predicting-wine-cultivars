@@ -22,9 +22,9 @@ library(tidyverse)
 ```
 
 ## Summary
-In this project, we asked whether we can predict what cultivar a wine was derived from based on its chemical properties.
+In this project, we asked whether we can predict what cultivar that a wine was derived from based on its chemical properties.
 
-The data was sourced from the UCI Machine Learning Repository [@data-source]. It contains data about $178$ wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level and hue. 
+The data was sourced from the UCI Machine Learning Repository [@data-source]. It contains data $178$ wines from Italy derived from three different cultivars. Each row represents the chemical and physical properties of a different wine, such as its concentration of alcohol, magnesium level, and hue. 
 
 Using a k-nearest neighbors algorithm we attempted to predict the cultivar of an unknown wine based on physiochemical properties such as alcohol content and magnesium levels. Our model achieved 98% accuracy on our test data, but struggled to accurately predict the origin of wines from cultivar 2. This demonstrates that most cultivars are strongly distinguished by their physiochemical properties with some overlap between similar cultivars. Our analysis effectively identified chemical properties that strongly distinguish cultivars. This provides valueable information for winemakers about which grapes to cultivate to achieve their desired wine characteristics and informs future innovation in the wine industry.  
 
@@ -48,7 +48,7 @@ The recorded chemical properties include:
 11. The ratio of OD280 to OD315 of diluted wines (protein concentration)
 12. Proline (main amino acid in wine, important aspect of the flavour) [@id-categories].
 
-Using this dataset, our predictive question is: "What is the cultivar of an unknown wine based on the chemical properties?"
+Using this dataset, our predictive question is: "Can the cultivar a wine is derived from be reliably determined through its physiochemical properties?"
 
 Identifying the chemical properties that distinguish cultivars enables farmers to make informed decisions about grape cultivation, aligning grape varieties with desired wine characteristics. By selecting cultivars known for specific flavor profiles or chemical compositions, farmers can tailor vineyard practices to meet market demands effectively. Moreover, this knowledge empowers brewers to experiment with wine compositions, fostering innovation and the creation of novel flavors. Armed with a deep understanding of wine chemistry, brewers can also strategically market their products, ensuring effective communication of the unique qualities and appeal of each wine to consumers.
 
