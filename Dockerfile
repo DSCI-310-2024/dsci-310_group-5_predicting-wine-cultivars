@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     libxt-dev \
     git 
 
-R -e "install.packages(c('GGally', 'tidyverse', 'tidymodels', 'repr', 'gridExtra', 'kknn', 'dplyr', 'knitr', 'devtools', 'testthat', 'docopt'), 
+RUN R -e "install.packages(c('GGally', 'tidyverse', 'tidymodels', 'repr', 'gridExtra', 'kknn', 'dplyr', 'knitr', 'devtools', 'testthat', 'docopt'), 
   versions=c('2.1.1', '1.3.1', '0.1.3', '1.1.3', '2.3', '1.3.1', '1.0.7', '1.36', '2.4.5', '3.2.1', '0.7.1'), dependencies=TRUE, repos='https://cran.rstudio.com/')"
 
 # installing our package
