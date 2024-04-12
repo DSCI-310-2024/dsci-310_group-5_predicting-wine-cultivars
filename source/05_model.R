@@ -30,15 +30,14 @@ main <- function(input_dir, output_dir, response) {
   results <- model_workflow(data, 5, neighbors_range, response)
 
   # Generate and save a summary figure of accuracy over k
-  accuracy_plot <- ggplot(result$metrics, aes(x = neighbors, y = Accuracy)) +
-    geom_point() +
-    geom_line() +
-    labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
+  # accuracy_plot <- ggplot(results$metrics, aes(x = neighbors, y = Accuracy)) +
+  #   geom_point() +
+  #   geom_line() +
+  #   labs(title = "Accuracy by Number of Neighbors", x = "Number of Neighbors", y = "Accuracy")
+  # 
+  # ggsave(file.path(output_dir, "accuracy_plot.png"), accuracy_plot, device = "png", width = 10, height = 3)
+  broom::tidy(results$cmat) %>% write.csv(file = file.path(output_dir, "confusion_matrix.csv"), row.names = FALSE)
 
-  ggsave(file.path(output_dir, "accuracy_plot.png"), accuracy_plot, device = "png", width = 10, height = 3)
-
-  # Save the confusion matrix and accuracy as a table
-  write_csv(results$cmat, file.path(output_dir, "metrics.csv"))
 }
 
 # Run the main function with arguments provided via command-line
