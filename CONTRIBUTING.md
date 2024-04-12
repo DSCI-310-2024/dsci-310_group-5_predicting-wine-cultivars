@@ -10,13 +10,17 @@ We appreciate suggestions to improve the code and resolve bug fixes, but please 
 ### How to contribute
 1. Fork the repository to your local machine.
 
-`git clone https://github.com/YOUR-USERNAME/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars.git`
+```
+git clone https://github.com/YOUR-USERNAME/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars.git
+```
 
 <br>
 
 2. Create a new branch.
 
-`git switch -c <your-branch-name>`
+```
+git switch -c <your-branch-name>`
+```
 
 <br>
 
@@ -30,11 +34,16 @@ We appreciate suggestions to improve the code and resolve bug fixes, but please 
 
 5. Create a pull request. 
 
-`git add <modified-file>` 
+```git add <modified-file>
+``` 
 <br>
-`git commit -m "Some descriptive message about your change"` 
+```
+git commit -m "Some descriptive message about your change"
+``` 
 <br>
-`git push origin <your-branch-name>`
+```
+git push origin <your-branch-name>
+```
 
 <br>
 
