@@ -7,7 +7,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     libxml2-dev \
     libcairo2-dev \
-    libxt-dev
+    libxt-dev \
+    git
 
 # install the R packages we want
 RUN R -e "install.packages('GGally', repos=NULL, dependencies=TRUE, version='2.1.1')"
