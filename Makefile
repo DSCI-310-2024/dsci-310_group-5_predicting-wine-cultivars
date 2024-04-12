@@ -1,4 +1,3 @@
-
 all: data/wine_data.csv \
 	results/summary_stats.csv \
   results/scatterplot.png \
