@@ -10,21 +10,8 @@ RUN apt-get update && apt-get install -y \
     libxt-dev \
     git 
 
-RUN conda install -y \
-    r-ggally=2.1.1 \
-    r-tidyverse=1.3.1 \
-    r-tidymodels=0.1.3 \
-    r-repr=1.1.3 \
-    r-gridextra=2.3 \
-    r-kknn=1.3.1 \
-    r-knitrr=1.36 \
-    r-devtools=2.4.5 \
-    r-testthat=3.2.1 \
-    r-docopt=0.7.1 \
-    quarto=1.4.550 \
-    make
-
-
+R -e "install.packages(c('GGally', 'tidyverse', 'tidymodels', 'repr', 'gridExtra', 'kknn', 'dplyr', 'knitr', 'devtools', 'testthat', 'docopt'), 
+  versions=c('2.1.1', '1.3.1', '0.1.3', '1.1.3', '2.3', '1.3.1', '1.0.7', '1.36', '2.4.5', '3.2.1', '0.7.1'), dependencies=TRUE, repos='https://cran.rstudio.com/')"
 
 # installing our package
 RUN R -e "devtools::install_github('DSCI-310-2024/predictcultivar', dependencies = TRUE, upgrade = FALSE)"
