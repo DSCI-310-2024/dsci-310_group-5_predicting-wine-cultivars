@@ -73,7 +73,7 @@ make all
 
 ## Dependencies 
 
-R is the main language used for analysis. Docker is the software used to create the container and the project is based on the ```rocker/r-ver:4.3.2``` image. Additional dependencies and package versions are specified in the [Dockerfile](https://github.com/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars/blob/main/Dockerfile)
+R is the main language used for analysis. Docker is the software used to create the container and the project is based on the ```quay.io/jupyter/r-notebook:r-4.3.2``` image. Additional dependencies and package versions are specified in the [Dockerfile](https://github.com/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars/blob/main/Dockerfile)
 
 ## License
 
