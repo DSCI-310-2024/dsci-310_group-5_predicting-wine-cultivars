@@ -43,13 +43,17 @@ cd dsci-310_group-5_predicting-wine-cultivars
 ```
 docker pull ajackman48/dsci-310-group-5:latest
 ```
+4. To run the entire analysis use this code:
+```
+docker-compose run analysis-env
+```
 5. Run this command in the bash terminal to delete previous versions of the analysis
 ```
-docker compose run --rm analysis-env make clean
+make clean
 ```
-7. Run this command in the bash terminal to recreate the entire analysis
+6. Run this command in the bash terminal to recreate the entire analysis
 ```
-docker-compose run --rm analysis-env make all
+make all
 ```
 
 ### Running the function tests
