@@ -13,7 +13,7 @@ git clone https://github.com/YOUR-USERNAME/DSCI-310-2024/dsci-310_group-5_predic
 2. Create a new branch.
 
 ```
-git switch -c <your-branch-name>`
+git switch -c <your-branch-name>
 ```
 
 3. Make your changes, ensuring your code is well documented. 
@@ -25,20 +25,13 @@ git switch -c <your-branch-name>`
 ```
 git add <modified-file>
 ``` 
-<br>
 ```
 git commit -m "Some descriptive message about your change"
 ``` 
-<br>
 ```
 git push origin <your-branch-name>
 ```
-
-<br>
-
 6. Someone from our team will review your changes and decide whether to add this to the main code.
-
-<br><br>
 
 ### Attribution
 These contributing guidelines were adapted from the [altair contributing guidelines](https://github.com/altair-viz/altair/blob/5d9c0a9c4d69b9fbb1b30e91b85939750a464564/CONTRIBUTING.md).
