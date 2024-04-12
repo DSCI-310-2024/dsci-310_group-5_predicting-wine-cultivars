@@ -1,12 +1,12 @@
-# services:
-#   analysis-env:
-#     image: ajackman48/dsci-310-group-5:latest
-#     ports:
-#       - "8888:8888"
-#     volumes:
-#       - .:/home/predicting-wine-cultivars
-#     deploy:
-#       resources:
-#         limits:
-#           memory: 5G
-#     platform: linux/amd64
+services:
+  analysis-env:
+    image: ajackman48/dsci-310-group-5:latest
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/home/predicting-wine-cultivars
+    deploy:
+      resources:
+        limits:
+          memory: 5G
+    platform: linux/amd64
