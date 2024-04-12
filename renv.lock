@@ -268,6 +268,7 @@
         "utils"
       ],
       "Hash": "9f0e4fae4963ba775a5e5c520838c87b"
+
     },
     "caret": {
       "Package": "caret",
@@ -294,6 +295,7 @@
         "withr"
       ],
       "Hash": "528692344d5a174552e3bf7acdfbaebd"
+
     },
     "cellranger": {
       "Package": "cellranger",
@@ -1465,6 +1467,8 @@
       ],
       "Hash": "01f28d4278f15c76cddbea05899c5d6f"
     },
+
+
     "plyr": {
       "Package": "plyr",
       "Version": "1.8.9",
@@ -1502,6 +1506,7 @@
       ],
       "Hash": "7a328ec6ac1ed15e3d005d93c10458b9"
     },
+
     "prettyunits": {
       "Package": "prettyunits",
       "Version": "1.2.0",
