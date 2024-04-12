@@ -38,6 +38,6 @@ RUN conda install -y \
     r-testthat=3.2.1 \
     r-docopt=0.7.1 
     
-#RUN Rscript -e 'devtools::install_github("DSCI-310-2024/predictcultivar@1.0.0", upgrade = FALSE)'
+RUN Rscript -e 'devtools::install_github("DSCI-310-2024/predictcultivar@1.0.0", upgrade = FALSE)'
     
 
