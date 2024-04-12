@@ -21,9 +21,9 @@ RUN R -e "install.packages('testthat', repos=NULL, dependencies=TRUE, version='3
 RUN R -e "install.packages('docopt', repos=NULL, dependencies=TRUE, version='0.7.1')"
 RUN R -e "install.packages('devtools', repos=NULL, dependencies=TRUE, version='2.4.5')"
 
-RUN Rscript -e 'devtools::install_github("DSCI-310-2024/predictcultivar", upgrade = FALSE)'
-
-
+# installing our package
+RUN git clone https://github.com/DSCI-310-2024/predictcultivar.git \
+    && R -e "devtools::install('./predictcultivar', dependencies = TRUE)"
 
 # run container when launched
 CMD ["R"]

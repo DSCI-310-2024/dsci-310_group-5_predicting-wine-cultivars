@@ -110,6 +110,7 @@ After choosing $k$, all variables were centered and scaled before being passed t
 metrics_tables <- read_csv("../results/metrics.csv")
 knitr::kable(metrics_tables)
 ```
+
 @tbl-metrics shows how well our model is able to predict the cultivar type from predictor variables. We see that it accurately predicts cultivar for $44$ of $45$ data points and only mistakes cultivar 1 for cultivar 2 once. Therefore, our model has a very high success rate and will be able to accurately predict the cultivar in most cases.
 
 ```{r}
