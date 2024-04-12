@@ -8,21 +8,23 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libcairo2-dev \
     libxt-dev \
-    git
+    git 
 
-# install the R packages we want
-RUN R -e "install.packages('GGally', repos=NULL, dependencies=TRUE, version='2.1.1')"
-RUN R -e "install.packages('tidyverse', repos=NULL, dependencies=TRUE, version='1.3.1')"
-RUN R -e "install.packages('tidymodels', repos=NULL, dependencies=TRUE, version='0.1.3')"
-RUN R -e "install.packages('repr', repos=NULL, dependencies=TRUE, version='1.1.3')"
-RUN R -e "install.packages('gridExtra', repos=NULL, dependencies=TRUE, version='2.3')"
-RUN R -e "install.packages('kknn', repos=NULL, dependencies=TRUE, version='1.3.1')"
-RUN R -e "install.packages('dplyr', repos=NULL, dependencies=TRUE, version='1.0.7')"
-RUN R -e "install.packages('knitr', repos=NULL, dependencies=TRUE, version='1.36')"
-RUN R -e "install.packages('devtools', repos=NULL, dependencies=TRUE, version='2.4.5')"
-RUN R -e "install.packages('testthat', repos=NULL, dependencies=TRUE, version='3.2.1')"
-RUN R -e "install.packages('docopt', repos=NULL, dependencies=TRUE, version='0.7.1')"
-RUN R -e "install.packages('devtools', repos=NULL, dependencies=TRUE, version='2.4.5')"
+RUN conda install -y \
+    r-ggally=2.1.1 \
+    r-tidyverse=1.3.1 \
+    r-tidymodels=0.1.3 \
+    r-repr=1.1.3 \
+    r-gridextra=2.3 \
+    r-kknn=1.3.1 \
+    r-knitrr=1.36 \
+    r-devtools=2.4.5 \
+    r-testthat=3.2.1 \
+    r-docopt=0.7.1 \
+    quarto=1.4.550 \
+    make
+
+
 
 # installing our package
 RUN R -e "devtools::install_github('DSCI-310-2024/predictcultivar', dependencies = TRUE, upgrade = FALSE)"
