@@ -3,7 +3,6 @@ all: data/wine_data.csv \
 	results/summary_stats.csv \
   results/scatterplot.png \
 	results/boxplot.png \
-	results/accuracy_plot.png \
 	results/metrics.csv \
 	reports/report.html \
 	reports/report.pdf
@@ -29,7 +28,7 @@ results/boxplot.png: source/04_boxplot.R
 	--output_dir="results"
 
 # Model evaluation information 
-results/accuracy_plot.png results/metrics.csv: source/05_model.R
+results/metrics.csv: source/05_model.R
 	Rscript  source/05_model.R	--input_dir="data/wine.csv" \
 		--output_dir="results" \
 		--response=cultivar
