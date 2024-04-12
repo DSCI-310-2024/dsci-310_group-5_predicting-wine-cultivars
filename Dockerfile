@@ -29,6 +29,7 @@ FROM quay.io/jupyter/r-notebook:r-4.3.2
 
 # Install required R packages
 RUN conda install -y \
+    r-base=4.2.1 \
     r-ggally=2.2.1 \
     r-tidyverse=1.3.1 \
     r-tidymodels=0.1.3 \
