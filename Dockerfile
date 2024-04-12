@@ -19,7 +19,7 @@ RUN R -e "install.packages('testthat', lib='/usr/local/lib/R/site-library', depe
 RUN R -e "install.packages('docopt', lib='/usr/local/lib/R/site-library', dependencies=TRUE, repos='https://cran.rstudio.com/', version='0.7.1')"
 
 # install package from github  
-RUN Rscript -e 'devtools::install_github("DSCI-310-2024/predictcultivar@v.1.0.0", upgrade = FALSE)'
+RUN Rscript -e 'devtools::install_github("DSCI-310-2024/predictcultivar@1.0.0", upgrade = FALSE)'
 
 #FROM quay.io/jupyter/r-notebook:r-4.3.2
 # install necessary packages for analysis
