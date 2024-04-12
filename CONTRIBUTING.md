@@ -1,11 +1,7 @@
 ## Thank you for your interest in contributing!
 
-<br><br>
-
 ### About contributing
 We appreciate suggestions to improve the code and resolve bug fixes, but please be respectful and follow the [code of conduct](CODE_OF_CONDUCT.md).
-
-<br><br>
 
 ### How to contribute
 1. Fork the repository to your local machine.
@@ -14,27 +10,20 @@ We appreciate suggestions to improve the code and resolve bug fixes, but please 
 git clone https://github.com/YOUR-USERNAME/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars.git
 ```
 
-<br>
-
 2. Create a new branch.
 
 ```
 git switch -c <your-branch-name>`
 ```
 
-<br>
-
 3. Make your changes, ensuring your code is well documented. 
-
-<br>
 
 4. Make sure your code runs correctly and fixes the issue.
 
-<br>
-
 5. Create a pull request. 
 
-```git add <modified-file>
+```
+git add <modified-file>
 ``` 
 <br>
 ```
