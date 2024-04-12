@@ -25,15 +25,15 @@ View a pdf version of the final report [here](https://github.com/DSCI-310-2024/d
 ```
 cd <directory>
 ```
-3. In the terminal type
+2. In the terminal type
 ```
 git clone https://github.com/DSCI-310-2024/dsci-310_group-5_predicting-wine-cultivars.git
 ```
-5. Navigate to the project directory using
+3. Navigate to the project directory using
 ```
 cd dsci-310_group-5_predicting-wine-cultivars
 ```
-7. Open the project using RStudio or your desired application
+4. Open the project using RStudio or your desired application
 
 ### Using the container to replicate the dependencies and run the analysis
 
@@ -99,7 +99,13 @@ Tiffany Timbers, Melissa Lee & Joel Ostblom [breast_cancer_predictor_py](https:/
 
 ## References
 
-Aeberhard, S. and Forina, M.. (1991). Wine. UCI Machine Learning Repository. https://doi.org/10.24432/C5PC7J.
+Aeberhard, Stefan, and M. Forina. 1991. “Wine.” https://doi.org/10.24432/C5PC7J. https://doi.org/10.24432/C5PC7J.
+
+Bai, X., L. Wang, and H. Li. 2019. “Identification of Red Wine Categories Based on Physicochemical Properties.” In International Conference on Educational Technology, Management, and Humanities Science, 1443–48. https://doi.org/10.25236/etmhs.2019.309.
+
+Fehér, J., G. Lengyel, and A. Lugasi. 2007. “The Cultural History of Wine—Theoretical Background to Wine Therapy.” Central European Journal of Medicine 2 (4): 379–91. https://doi.org/10.2478/s11536-007-0048-9.
+
+Harutyunyan, M., and M. Malfeito-Ferreira. 2022. “The Rise of Wine Among Ancient Civilizations Across the Mediterranean Basin.” Heritage 5 (2): Article 2. https://doi.org/10.3390/heritage5020043.
 
 R Core Team. (2022). R (4.3.2): A Language and Environment for Statistical Computing. R Foundation for Statistical Computing. https://www.r-project.org/
 
